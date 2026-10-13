@@ -38,3 +38,13 @@ test("offer inspirations never claim live MerlinX prices", async ({ page }) => {
   await expect(page.getByText("Cena demonstracyjna").first()).toBeVisible();
   await expect(page.getByText(/Aktualna cena i dostępność/)).toBeVisible();
 });
+
+test("connects only verified social profiles and provides a useful footer", async ({ page }) => {
+  await page.goto("/");
+
+  const facebook = page.getByRole("link", { name: "Odwiedź Summer Holiday na Facebooku" });
+  await expect(facebook).toHaveAttribute("href", "https://www.facebook.com/summerholidaypolska");
+  await expect(page.getByText("Profil do podłączenia po przekazaniu zweryfikowanego adresu.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Twoja następna podróż/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /572 219 872/ }).last()).toHaveAttribute("href", "tel:+48572219872");
+});

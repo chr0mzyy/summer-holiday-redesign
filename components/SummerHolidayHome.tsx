@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Camera,
   CalendarDays,
-  Check,
   ChevronDown,
   Compass,
   ExternalLink,
@@ -340,23 +339,54 @@ function App() {
         </div>
       </section>
 
-      <section id="dlaczego-my" className="section concierge-section">
-        <div className="shell concierge-grid">
-          <motion.div className="concierge-visual" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <Image src="/images/hero-mediterranean.webp" alt="Widok na śródziemnomorską zatokę" fill sizes="(max-width: 900px) 100vw, 45vw" className="cover" />
-            <div className="concierge-float glass"><span>Porozmawiajmy</span><strong>605 425 620</strong><a href="tel:+48605425620"><Phone size={17} /> Zadzwoń do nas</a></div>
+      <section id="dlaczego-my" className="section social-section" aria-labelledby="social-title">
+        <div className="shell">
+          <motion.div className="social-heading" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={reveal}>
+            <div>
+              <span className="eyebrow eyebrow--blue">Podróżuj razem z nami</span>
+              <h2 id="social-title">Zobacz, czym żyje<br /><em>Summer Holiday</em></h2>
+            </div>
+            <p>Wakacyjne inspiracje, nowe kierunki i kontakt z naszym biurem — także wtedy, gdy dopiero zaczynasz marzyć o wyjeździe.</p>
           </motion.div>
-          <motion.div className="concierge-copy" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <span className="eyebrow eyebrow--blue">Summer Holiday concierge</span>
-            <h2>Technologia wybiera.<br /><em>Człowiek doradza.</em></h2>
-            <p>Wyszukiwarka pomaga zawęzić wybór, a rozmowa pozwala dopasować szczegóły — od lotniska i wyżywienia po rytm całego wyjazdu.</p>
-            <ul>
-              <li><span><Check /></span><div><strong>Aktualność potwierdzana w systemie</strong><small>Cena i dostępność są weryfikowane w MerlinX przed rezerwacją.</small></div></li>
-              <li><span><Check /></span><div><strong>Jasna ścieżka wyboru</strong><small>Wyszukiwanie, porównanie, szczegóły i rezerwacja bez wizualnego chaosu.</small></div></li>
-              <li><span><Check /></span><div><strong>Kontakt, kiedy go potrzebujesz</strong><small>Dwa numery telefonu i szybki dostęp do doradcy.</small></div></li>
-            </ul>
-            <a className="button button--ink" href="tel:+48572219872">Porozmawiaj z doradcą <ArrowRight size={17} /></a>
-          </motion.div>
+
+          <div className="social-stage">
+            <motion.a
+              className="social-feature"
+              href="https://www.facebook.com/summerholidaypolska"
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              aria-label="Odwiedź Summer Holiday na Facebooku"
+            >
+              <Image src="/images/destination-mallorca.webp" alt="Słoneczne wybrzeże Majorki" fill sizes="(max-width: 800px) 100vw, 58vw" className="cover" />
+              <span className="social-feature__wash" />
+              <div className="social-feature__content">
+                <span className="social-platform"><b aria-hidden="true">f</b> Facebook</span>
+                <h3>Inspiracje, kierunki<br />i wakacyjne nowości.</h3>
+                <p>Dołącz do społeczności Summer Holiday i bądź bliżej kolejnej podróży.</p>
+                <span className="social-feature__link">Odwiedź profil <ArrowRight /></span>
+              </div>
+            </motion.a>
+
+            <div className="social-side">
+              <motion.figure className="social-photo" initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <Image src="/images/destination-greece.webp" alt="Białe domy nad błękitnym morzem w Grecji" fill sizes="(max-width: 800px) 100vw, 34vw" className="cover" />
+                <figcaption><span>#summerholiday</span><strong>Chwile, do których chce się wracać</strong></figcaption>
+              </motion.figure>
+
+              <motion.div className="social-connect glass" initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.08 }}>
+                <span className="social-connect__icon"><Camera /></span>
+                <div><span>Instagram</span><strong>Podróżnicze kadry i relacje</strong><small>Profil do podłączenia po przekazaniu zweryfikowanego adresu.</small></div>
+                <span className="social-connect__status">Wkrótce</span>
+              </motion.div>
+
+              <motion.a className="social-message" href="mailto:summerholiday@onet.pl" initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.14 }}>
+                <span><Mail /></span><div><small>Masz pytanie?</small><strong>Napisz do nas bezpośrednio</strong></div><ArrowRight />
+              </motion.a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -379,11 +409,15 @@ function App() {
       </section>
 
       <footer className="site-footer">
+        <div className="shell footer-invitation">
+          <div><span className="eyebrow">Zaczynamy?</span><h2>Twoja następna podróż<br /><em>może zacząć się dziś.</em></h2></div>
+          <div><p>Powiedz nam, gdzie chcesz odpocząć. Zajmiemy się wyborem właściwej oferty i spokojnym przejściem przez rezerwację.</p><div className="footer-invitation__actions"><a className="button button--light" href="tel:+48572219872"><Phone /> 572 219 872</a><a href="mailto:summerholiday@onet.pl">Napisz wiadomość <ArrowRight /></a></div></div>
+        </div>
         <div className="shell footer-grid">
-          <div className="footer-brand"><BrandMark light /><p>Wakacje zaczynają się od dobrego planu i spokojnej głowy.</p><div className="socials"><a href="https://www.facebook.com/summerholidaypolska" target="_blank" rel="noreferrer" aria-label="Summer Holiday na Facebooku"><b aria-hidden="true">f</b></a><span role="img" aria-label="Instagram — profil do uzupełnienia"><Camera /></span></div></div>
-          <div><h3>Odkrywaj</h3><a href="#oferty">Oferty</a><a href="#kierunki">Kierunki</a><a href={LIVE_SITE} target="_blank" rel="noreferrer">Aktualna wyszukiwarka</a></div>
-          <div><h3>Summer Holiday</h3><a href={`${LIVE_SITE}aboutus`} target="_blank" rel="noreferrer">O nas</a><a href={`${LIVE_SITE}contact`} target="_blank" rel="noreferrer">Kontakt</a><a href={`${LIVE_SITE}privacyrodo`} target="_blank" rel="noreferrer">Polityka prywatności</a></div>
-          <div><h3>Kontakt</h3><a href="tel:+48572219872"><Phone /> 572 219 872</a><a href="tel:+48605425620"><Phone /> 605 425 620</a><a href="mailto:summerholiday@onet.pl"><Mail /> summerholiday@onet.pl</a></div>
+          <div className="footer-brand"><BrandMark light /><p>W życiu piękne są chwile. My pomagamy zamienić je w podróż, do której wraca się pamięcią.</p><span className="footer-address"><MapPin /> Traugutta 52 · 44-370 Pszów</span><div className="socials"><a href="https://www.facebook.com/summerholidaypolska" target="_blank" rel="noreferrer" aria-label="Summer Holiday na Facebooku"><b aria-hidden="true">f</b><span>Facebook</span></a><span role="img" aria-label="Instagram — profil do podłączenia"><Camera /><span>Instagram wkrótce</span></span></div></div>
+          <div className="footer-links"><h3>Odkrywaj</h3><a href="#oferty">Oferty <ArrowRight /></a><a href="#kierunki">Kierunki <ArrowRight /></a><a href={LIVE_SITE} target="_blank" rel="noreferrer">Aktualna wyszukiwarka <ExternalLink /></a></div>
+          <div className="footer-links"><h3>Summer Holiday</h3><a href={`${LIVE_SITE}aboutus`} target="_blank" rel="noreferrer">O nas <ExternalLink /></a><a href={`${LIVE_SITE}contact`} target="_blank" rel="noreferrer">Kontakt <ExternalLink /></a><a href={`${LIVE_SITE}privacyrodo`} target="_blank" rel="noreferrer">Prywatność <ExternalLink /></a></div>
+          <div className="footer-contact"><h3>Kontakt</h3><a href="tel:+48572219872"><span><Phone /></span><div><small>Zadzwoń</small>572 219 872</div></a><a href="tel:+48605425620"><span><Phone /></span><div><small>Drugi numer</small>605 425 620</div></a><a href="mailto:summerholiday@onet.pl"><span><Mail /></span><div><small>Napisz</small>summerholiday@onet.pl</div></a></div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Summer Holiday — koncepcja redesignu</span><span>Demo UI · bez aktywnej integracji MerlinX</span></div>
       </footer>
