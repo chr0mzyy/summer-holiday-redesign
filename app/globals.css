@@ -56,7 +56,7 @@ main { overflow: hidden; }
   padding: 0 14px 0 24px;
 }
 .glass--header { background: linear-gradient(120deg, rgba(255,255,255,.86), rgba(255,255,255,.61)); }
-.brand { width: 148px; height: 64px; padding: 4px 10px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; border-radius: 15px; background: rgba(255,255,255,.9); overflow: hidden; }
+.brand { width: 148px; height: 64px; padding: 4px 10px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; background: transparent; overflow: hidden; }
 .brand__logo { width: 100%; height: 100%; object-fit: contain; }
 .brand--light { width: 164px; height: 96px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.96); box-shadow: inset 0 1px 0 white, 0 14px 32px rgba(0,0,0,.12); }
 
@@ -85,6 +85,14 @@ main { overflow: hidden; }
 }
 .button:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(7,86,117,.3), inset 0 1px 0 rgba(255,255,255,.3); }
 .button--small { min-height: 44px; padding-inline: 18px; }
+.button--hero { min-width: 248px; min-height: 66px; padding: 0 22px 0 26px; justify-content: space-between; border-color: rgba(255,255,255,.46); box-shadow: 0 18px 42px rgba(2,69,91,.42), inset 0 1px 0 rgba(255,255,255,.38); position: relative; overflow: hidden; }
+.button--hero::before { content: ""; position: absolute; inset: -70% auto -70% -35%; width: 34%; background: rgba(255,255,255,.28); transform: rotate(18deg); transition: left .55s cubic-bezier(.22,1,.36,1); }
+.button--hero:hover::before { left: 115%; }
+.button--hero > span { display: grid; gap: 3px; text-align: left; position: relative; z-index: 1; }
+.button--hero strong { font-size: 15px; letter-spacing: .01em; }
+.button--hero small { font-size: 9px; font-weight: 650; letter-spacing: .045em; color: rgba(255,255,255,.72); }
+.button--hero > svg { flex: 0 0 auto; position: relative; z-index: 1; transition: transform .25s ease; }
+.button--hero:hover > svg { transform: translateX(4px); }
 .button--ink { background: var(--ink); }
 .button--light { background: white; color: var(--ocean-deep); }
 .menu-button { display: none; border: 0; background: transparent; width: 42px; height: 42px; border-radius: 50%; place-items: center; }
@@ -147,6 +155,17 @@ main { overflow: hidden; }
 .trust-strip span { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 700; }
 .trust-strip svg { width: 16px; color: var(--gold); }
 .trust-strip small { flex-basis: 100%; text-align: center; font-size: 8px; color: #64767b; }
+
+.flight-transition { height: 104px; position: relative; overflow: hidden; perspective: 900px; background: linear-gradient(180deg, var(--ivory-soft), var(--ivory)); }
+.flight-transition::before { content: ""; position: absolute; left: 0; right: 0; top: 49%; height: 1px; background: linear-gradient(90deg, transparent 5%, rgba(8,126,159,.08) 28%, rgba(200,164,100,.18) 50%, rgba(8,126,159,.08) 72%, transparent 95%); }
+.flight-transition__glow { position: absolute; width: 220px; height: 72px; left: 50%; top: 47%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(ellipse, rgba(36,181,206,.11), transparent 70%); filter: blur(7px); }
+.flight-plane { position: absolute; left: 0; top: 40%; width: 72px; height: 54px; transform-style: preserve-3d; will-change: transform; }
+.flight-plane__body { position: absolute; inset: 0; display: grid; place-items: center; color: var(--ocean-deep); filter: drop-shadow(0 6px 5px rgba(7,57,72,.2)); transform: rotate(42deg) translateZ(16px); }
+.flight-plane__body::before { content: ""; position: absolute; width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(233,244,243,.88)); border: 1px solid rgba(255,255,255,.9); box-shadow: inset 0 1px 0 white, 0 8px 24px rgba(7,57,72,.16); z-index: -1; }
+.flight-plane__body svg { width: 28px; height: 28px; stroke-width: 1.7; }
+.flight-plane__trail { position: absolute; right: 78%; top: 50%; width: 112px; height: 2px; background: linear-gradient(90deg, transparent, rgba(8,126,159,.08), rgba(8,126,159,.42)); filter: blur(.4px); transform: translateY(-50%) translateZ(-5px); }
+.flight-plane__trail::after { content: ""; position: absolute; right: 8px; top: 7px; width: 78px; height: 1px; background: linear-gradient(90deg, transparent, rgba(200,164,100,.3)); }
+.flight-plane__shadow { position: absolute; width: 42px; height: 11px; left: 16px; top: 46px; border-radius: 50%; background: rgba(7,57,72,.2); filter: blur(7px); transform: translateZ(-24px); }
 
 .section { padding: 120px 0; }
 .offers-section { background: radial-gradient(circle at 85% 10%, rgba(36,181,206,.09), transparent 24%), var(--ivory); }
@@ -290,6 +309,9 @@ main { overflow: hidden; }
   .search-notice button { grid-column: 3; grid-row: 1; }
   .trust-strip { padding-top: 28px; }
   .trust-strip__inner { gap: 13px 22px; justify-content: flex-start; }
+  .flight-transition { height: 86px; }
+  .flight-plane { width: 62px; height: 48px; }
+  .flight-plane__trail { width: 76px; }
   .section { padding: 88px 0; }
   .section-heading { grid-template-columns: 1fr; gap: 24px; margin-bottom: 38px; }
   .section-heading h2, .concierge-copy h2, .cta-card h2 { font-size: clamp(41px, 10vw, 58px); }
@@ -315,6 +337,8 @@ main { overflow: hidden; }
   .hero h1 { font-size: 51px; }
   .hero__kicker { font-size: 9px; }
   .hero__actions { align-items: flex-start; flex-direction: column; gap: 17px; }
+  .button--hero { width: min(100%, 310px); min-height: 70px; padding-inline: 25px 22px; }
+  .button--hero strong { font-size: 16px; }
   .search-wrap { margin-top: -234px; }
   .search-card { padding-top: 131px; }
   .search-card__top { flex-direction: column; gap: 7px; }

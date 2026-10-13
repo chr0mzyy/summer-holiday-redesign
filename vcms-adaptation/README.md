@@ -15,7 +15,7 @@ Ten katalog zawiera bezpieczny punkt startowy do przeniesienia layoutu na oficja
 
 1. Skopiuj dostarczone przez MerlinX pliki `rwdGate.php` i `.htaccess` do projektu PHP zgodnie z oficjalną instrukcją.
 2. Skopiuj `index.php.example` jako `index.php`.
-3. Skopiuj katalog `assets` do publicznego katalogu `/assets`; zawiera oficjalne logo użyte w nagłówku.
+3. Skopiuj katalog `assets` do publicznego katalogu `/assets`; zawiera oficjalne logo z przezroczystym tłem użyte w nagłówku.
 4. Zastąp `VCMS_AFFILIATE_ID_FROM_PANEL` rzeczywistym identyfikatorem, ale nie commituj go do publicznego repozytorium.
 5. Zastąp przykładową tablicę widgetów ID pochodzącymi z panelu VCMS.
 6. Zachowaj kolejność: obsługa raw result → `HEAD` → widgety/layout → `BODY` → `FOOTER`.

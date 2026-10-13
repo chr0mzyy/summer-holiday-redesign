@@ -8,6 +8,10 @@ test("renders the primary journey and clearly labels demo search", async ({ page
   await expect(logo).toHaveJSProperty("complete", true);
   expect(await logo.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   await expect(page.getByRole("heading", { name: /Twoje lato/i })).toBeVisible();
+  const heroCta = page.getByRole("link", { name: /Zaplanuj wakacje/i });
+  await expect(heroCta).toBeVisible();
+  expect((await heroCta.boundingBox())?.height).toBeGreaterThanOrEqual(64);
+  await expect(page.locator(".flight-plane")).toHaveCount(1);
   await expect(page.getByText("Demo UI", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Dokąd lecisz/i })).toBeVisible();
 

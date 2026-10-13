@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import {
   ArrowRight,
   Camera,
@@ -24,7 +24,7 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 const LIVE_SITE = "https://biurosummerholiday.pl/";
 
@@ -71,7 +71,7 @@ function BrandMark({ light = false }: { light?: boolean }) {
     <a className={`brand ${light ? "brand--light" : ""}`} href="#top" aria-label="Summer Holiday — strona główna">
       <Image
         className="brand__logo"
-        src="/brand/summer-holiday-logo.jpg"
+        src="/brand/summer-holiday-logo-transparent.webp"
         alt="Summer Holiday — Biuro Podróży"
         width={1075}
         height={635}
@@ -249,6 +249,27 @@ function OfferCard({ offer, index }: { offer: (typeof offers)[number]; index: nu
   );
 }
 
+function FlightTransition({ reducedMotion }: { reducedMotion: boolean | null }) {
+  const transitionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: transitionRef, offset: ["start end", "end start"] });
+  const x = useTransform(scrollYProgress, [0, 1], ["-18vw", "108vw"]);
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [24, -16, -34]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.55, 1], [38, 8, -24]);
+  const rotateZ = useTransform(scrollYProgress, [0, 0.5, 1], [-12, -3, 8]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.72, 1.08, 0.82]);
+
+  return (
+    <section ref={transitionRef} className="flight-transition" aria-hidden="true">
+      <div className="flight-transition__glow" />
+      <motion.div className="flight-plane" style={reducedMotion ? { x: "50vw" } : { x, y, rotateX, rotateZ, scale }}>
+        <span className="flight-plane__trail" />
+        <span className="flight-plane__body"><Plane /></span>
+        <span className="flight-plane__shadow" />
+      </motion.div>
+    </section>
+  );
+}
+
 function App() {
   const reducedMotion = useReducedMotion();
   return (
@@ -265,7 +286,10 @@ function App() {
             <h1 id="hero-title">Twoje lato.<br /><em>Pięknie zaplanowane.</em></h1>
             <p>Starannie wybrane kierunki, prawdziwe wsparcie i wakacje dopasowane do Twojego rytmu.</p>
             <div className="hero__actions">
-              <a className="button" href="#wyszukiwarka">Zaplanuj wakacje <ArrowRight size={17} /></a>
+              <a className="button button--hero" href="#wyszukiwarka">
+                <span><strong>Zaplanuj wakacje</strong><small>Znajdź wyjazd dla siebie</small></span>
+                <ArrowRight size={20} />
+              </a>
               <a className="text-link text-link--light" href="#kierunki">Odkryj kierunki <span aria-hidden="true">↘</span></a>
             </div>
           </motion.div>
@@ -283,6 +307,8 @@ function App() {
           <small>* Po docelowym wdrożeniu integracji VCMS</small>
         </div>
       </section>
+
+      <FlightTransition reducedMotion={reducedMotion} />
 
       <section id="oferty" className="section offers-section">
         <div className="shell">
