@@ -69,13 +69,15 @@ const reveal = {
 function BrandMark({ light = false }: { light?: boolean }) {
   return (
     <a className={`brand ${light ? "brand--light" : ""}`} href="#top" aria-label="Summer Holiday — strona główna">
-      <span className="brand__sun" aria-hidden="true"><span /></span>
-      <span className="brand__copy">
-        <strong>SUMMER</strong>
-        <span>HOLIDAY</span>
-      </span>
-      <span className="brand__rule" aria-hidden="true" />
-      <small>BIURO PODRÓŻY</small>
+      <Image
+        className="brand__logo"
+        src="/brand/summer-holiday-logo.jpg"
+        alt="Summer Holiday — Biuro Podróży"
+        width={1075}
+        height={635}
+        priority={!light}
+        sizes="(max-width: 800px) 130px, 148px"
+      />
     </a>
   );
 }

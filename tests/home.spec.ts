@@ -3,6 +3,10 @@ import { expect, test } from "@playwright/test";
 test("renders the primary journey and clearly labels demo search", async ({ page }) => {
   await page.goto("/");
 
+  const logo = page.getByRole("img", { name: "Summer Holiday — Biuro Podróży" }).first();
+  await expect(logo).toBeVisible();
+  await expect(logo).toHaveJSProperty("complete", true);
+  expect(await logo.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   await expect(page.getByRole("heading", { name: /Twoje lato/i })).toBeVisible();
   await expect(page.getByText("Demo UI", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Dokąd lecisz/i })).toBeVisible();

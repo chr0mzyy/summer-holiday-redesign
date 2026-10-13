@@ -56,18 +56,9 @@ main { overflow: hidden; }
   padding: 0 14px 0 24px;
 }
 .glass--header { background: linear-gradient(120deg, rgba(255,255,255,.86), rgba(255,255,255,.61)); }
-.brand { display: grid; grid-template-columns: 31px auto; grid-template-rows: auto auto; width: 164px; line-height: 1; color: var(--ink); }
-.brand__sun { grid-row: 1 / span 2; width: 27px; height: 27px; align-self: center; margin-right: 8px; border: 1.5px solid var(--gold); border-radius: 50%; display: grid; place-items: center; position: relative; }
-.brand__sun::before, .brand__sun::after { content: ""; position: absolute; width: 35px; height: 1px; background: var(--gold); }
-.brand__sun::after { transform: rotate(90deg); }
-.brand__sun span { width: 12px; height: 12px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 18px rgba(200,164,100,.65); }
-.brand__copy { font-size: 13px; letter-spacing: .13em; display: flex; align-items: baseline; gap: 4px; }
-.brand__copy strong { font-weight: 800; }
-.brand__copy span { color: var(--ocean); font-weight: 500; }
-.brand__rule { height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin: 5px 0 4px; }
-.brand small { grid-column: 2; font-size: 7px; letter-spacing: .27em; opacity: .65; }
-.brand--light { color: white; }
-.brand--light .brand__copy span { color: #86e1ee; }
+.brand { width: 148px; height: 64px; padding: 4px 10px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; border-radius: 15px; background: rgba(255,255,255,.9); overflow: hidden; }
+.brand__logo { width: 100%; height: 100%; object-fit: contain; }
+.brand--light { width: 164px; height: 96px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.96); box-shadow: inset 0 1px 0 white, 0 14px 32px rgba(0,0,0,.12); }
 
 .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(22px, 3vw, 42px); }
 .desktop-nav a { font-size: 13px; font-weight: 650; letter-spacing: .03em; position: relative; }
@@ -274,7 +265,8 @@ main { overflow: hidden; }
   .shell { width: min(100% - 28px, 680px); }
   .site-header { top: 12px; }
   .header-inner { height: 64px; border-radius: 19px; padding: 0 8px 0 16px; }
-  .brand { width: 148px; transform: scale(.91); transform-origin: left center; }
+  .brand { width: 126px; height: 56px; padding: 4px 8px; }
+  .brand--light { width: 154px; height: 91px; padding: 8px 11px; }
   .phone-link, .header-actions > .button { display: none; }
   .hero { height: 880px; min-height: 880px; }
   .hero__image { object-position: 69% center; }

@@ -44,7 +44,9 @@ $sections = $rwdgate->getSectionsList();
 </head>
 <body class="sh-vcms">
     <header class="sh-header">
-        <a class="sh-brand" href="/" aria-label="Summer Holiday — strona główna">SUMMER <span>HOLIDAY</span></a>
+        <a class="sh-brand" href="/" aria-label="Summer Holiday — strona główna">
+            <img src="/assets/summer-holiday-logo.jpg" width="1075" height="635" alt="Summer Holiday — Biuro Podróży">
+        </a>
         <nav aria-label="Nawigacja główna">
             <a href="/">Oferty</a>
             <a href="/contact">Kontakt</a>
