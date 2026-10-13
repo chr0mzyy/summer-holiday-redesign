@@ -1,0 +1,32 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# Next.js
+/.next/
+/out/
+
+# production
+/build
+
+# local files
+.DS_Store
+*.pem
+.env*
+!.env.example
+
+# Vercel
+.vercel
+
+# tests
+/test-results/
+/playwright-report/
+/blob-report/
+*.tsbuildinfo
+
+# Codex working data
+/work/
+
+# Generated visual QA artifacts (kept locally as deliverables)
+/outputs/*.png
