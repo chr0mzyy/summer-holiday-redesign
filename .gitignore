@@ -28,5 +28,5 @@
 # Codex working data
 /work/
 
-# Generated visual QA artifacts (kept locally as deliverables)
-/outputs/*.png
+# Generated QA artifacts (kept locally as deliverables)
+/outputs/*

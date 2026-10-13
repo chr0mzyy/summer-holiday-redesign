@@ -9,6 +9,7 @@
   --ocean-deep: #075675;
   --ocean-bright: #24b5ce;
   --gold: #c8a464;
+  --gold-text: #765a24;
   --gold-pale: #e9d7b1;
   --line: rgba(16, 44, 54, 0.13);
   --serif: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
@@ -123,9 +124,9 @@ main { overflow: hidden; }
 .search-card::before { content: ""; position: absolute; inset: 1px auto auto 8%; width: 62%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.98), transparent); }
 .search-card__top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 17px; }
 .search-card h2 { margin: 6px 0 0; font: 500 28px/1.1 var(--serif); letter-spacing: -.03em; }
-.eyebrow { text-transform: uppercase; letter-spacing: .2em; font-size: 9px; font-weight: 850; color: var(--gold); display: inline-flex; align-items: center; gap: 7px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .2em; font-size: 9px; font-weight: 850; color: var(--gold-text); display: inline-flex; align-items: center; gap: 7px; }
 .eyebrow--blue { color: var(--ocean); }
-.eyebrow--gold { color: var(--gold); }
+.eyebrow--gold { color: var(--gold-text); }
 .demo-badge { padding: 7px 10px; border-radius: 99px; border: 1px solid rgba(8,126,159,.18); background: rgba(8,126,159,.07); color: var(--ocean-deep); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .travel-tabs { display: flex; gap: 6px; position: absolute; right: 32px; top: 62px; }
 .travel-tabs button { border: 0; background: transparent; border-radius: 99px; padding: 8px 12px; color: #607277; font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; }
@@ -154,7 +155,7 @@ main { overflow: hidden; }
 .trust-strip__inner { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 4vw, 52px); flex-wrap: wrap; color: #5c6d72; }
 .trust-strip span { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 700; }
 .trust-strip svg { width: 16px; color: var(--gold); }
-.trust-strip small { flex-basis: 100%; text-align: center; font-size: 8px; color: #97a1a4; }
+.trust-strip small { flex-basis: 100%; text-align: center; font-size: 8px; color: #64767b; }
 
 .section { padding: 120px 0; }
 .offers-section { background: radial-gradient(circle at 85% 10%, rgba(36,181,206,.09), transparent 24%), var(--ivory); }
@@ -230,6 +231,7 @@ main { overflow: hidden; }
 .cta-card { min-height: 340px; border-radius: 34px; background: radial-gradient(circle at 84% 15%, rgba(54,188,207,.35), transparent 27%), linear-gradient(130deg, #07394c, #075e76 68%, #087b93); color: white; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 70px; padding: 65px 70px; position: relative; overflow: hidden; box-shadow: 0 35px 90px rgba(5,69,87,.22); }
 .cta-card::before { content: ""; position: absolute; width: 240px; height: 240px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; right: -60px; bottom: -100px; box-shadow: 0 0 0 42px rgba(255,255,255,.035), 0 0 0 84px rgba(255,255,255,.02); }
 .cta-card h2 em { color: #e7d3aa; }
+.cta-card .eyebrow--gold { color: #ead8b4; }
 .cta-card > div:last-child { position: relative; z-index: 2; }
 .cta-card p { color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.75; margin: 0 0 25px; max-width: 430px; }
 .cta-actions { display: flex; align-items: center; gap: 20px; }
@@ -245,7 +247,7 @@ main { overflow: hidden; }
 .footer-grid a { font-size: 10px; display: inline-flex; align-items: center; gap: 7px; }
 .footer-grid a:hover { color: white; }
 .footer-grid a svg { width: 14px; color: #7dcbd8; }
-.footer-bottom { margin-top: 56px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 21px; display: flex; justify-content: space-between; font-size: 8px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.38); }
+.footer-bottom { margin-top: 56px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 21px; display: flex; justify-content: space-between; font-size: 8px; letter-spacing: .08em; text-transform: uppercase; color: #a4b2b7; }
 
 @media (max-width: 1060px) {
   .desktop-nav { display: none; }

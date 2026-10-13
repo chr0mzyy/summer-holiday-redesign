@@ -239,7 +239,7 @@ function OfferCard({ offer, index }: { offer: (typeof offers)[number]; index: nu
       </div>
       <div className="offer-card__body">
         <div><span className="eyebrow">{offer.country}</span><h3>{offer.place}</h3></div>
-        <div className="rating" aria-label="Ocena demonstracyjna: 5 na 5"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
+        <div className="rating" role="img" aria-label="Ocena demonstracyjna: 5 na 5"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
         <p>{offer.meta}</p>
         <div className="offer-card__footer"><div><small>Cena demonstracyjna</small><strong>{offer.price}</strong><span>/ os.</span></div><a href={LIVE_SITE} target="_blank" rel="noreferrer" aria-label={`Sprawdź ${offer.place} w aktualnym systemie`}><ArrowRight /></a></div>
       </div>
@@ -352,7 +352,7 @@ function App() {
 
       <footer className="site-footer">
         <div className="shell footer-grid">
-          <div className="footer-brand"><BrandMark light /><p>Wakacje zaczynają się od dobrego planu i spokojnej głowy.</p><div className="socials"><a href="https://www.facebook.com/summerholidaypolska" target="_blank" rel="noreferrer" aria-label="Summer Holiday na Facebooku"><b aria-hidden="true">f</b></a><span aria-label="Instagram — profil do uzupełnienia"><Camera /></span></div></div>
+          <div className="footer-brand"><BrandMark light /><p>Wakacje zaczynają się od dobrego planu i spokojnej głowy.</p><div className="socials"><a href="https://www.facebook.com/summerholidaypolska" target="_blank" rel="noreferrer" aria-label="Summer Holiday na Facebooku"><b aria-hidden="true">f</b></a><span role="img" aria-label="Instagram — profil do uzupełnienia"><Camera /></span></div></div>
           <div><h3>Odkrywaj</h3><a href="#oferty">Oferty</a><a href="#kierunki">Kierunki</a><a href={LIVE_SITE} target="_blank" rel="noreferrer">Aktualna wyszukiwarka</a></div>
           <div><h3>Summer Holiday</h3><a href={`${LIVE_SITE}aboutus`} target="_blank" rel="noreferrer">O nas</a><a href={`${LIVE_SITE}contact`} target="_blank" rel="noreferrer">Kontakt</a><a href={`${LIVE_SITE}privacyrodo`} target="_blank" rel="noreferrer">Polityka prywatności</a></div>
           <div><h3>Kontakt</h3><a href="tel:+48572219872"><Phone /> 572 219 872</a><a href="tel:+48605425620"><Phone /> 605 425 620</a><a href="mailto:summerholiday@onet.pl"><Mail /> summerholiday@onet.pl</a></div>

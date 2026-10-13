@@ -24,3 +24,14 @@
 ## Ograniczenie testów rezerwacji
 
 Demo nie ma dostępu do konta VCMS/MerlinX, dlatego nie testuje prawdziwego wyszukiwania, ceny ani rezerwacji. Te scenariusze należy wykonać na stagingu MerlinX po przekazaniu oficjalnych danych integracyjnych.
+
+## Ostatni wynik
+
+Pomiar lokalnego builda produkcyjnego (Lighthouse, 13.10.2026):
+
+- Performance: **97/100**
+- Accessibility: **100/100**
+- Best Practices: **100/100**
+- SEO: **63/100** — celowo obniżone przez `noindex, nofollow`, aby demo nie konkurowało z produkcyjną domeną.
+
+Playwright: **6/6 testów zaliczonych** (desktop + mobile). Skrypt screenshotów nie wykrył błędów konsoli.
