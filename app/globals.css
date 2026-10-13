@@ -151,13 +151,13 @@ main { overflow: hidden; }
 .search-notice a { display: flex; align-items: center; gap: 5px; color: var(--ocean-deep); font-size: 11px; font-weight: 800; }
 .search-notice button { border: 0; background: transparent; cursor: pointer; }
 
-.trust-strip { padding: 35px 0 23px; }
+.trust-strip { position: relative; z-index: 6; padding: 35px 0 23px; background: var(--ivory-soft); }
 .trust-strip__inner { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 4vw, 52px); flex-wrap: wrap; color: #5c6d72; }
 .trust-strip span { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 700; }
 .trust-strip svg { width: 16px; color: var(--gold); }
 .trust-strip small { flex-basis: 100%; text-align: center; font-size: 8px; color: #64767b; }
 
-.flight-transition { height: 104px; position: relative; overflow: hidden; perspective: 900px; background: linear-gradient(180deg, var(--ivory-soft), var(--ivory)); }
+.flight-transition { height: 104px; position: relative; z-index: 6; overflow: hidden; perspective: 900px; background: linear-gradient(180deg, var(--ivory-soft), var(--ivory)); }
 .flight-transition::before { content: ""; position: absolute; left: 0; right: 0; top: 49%; height: 1px; background: linear-gradient(90deg, transparent 5%, rgba(8,126,159,.08) 28%, rgba(200,164,100,.18) 50%, rgba(8,126,159,.08) 72%, transparent 95%); }
 .flight-transition__glow { position: absolute; width: 220px; height: 72px; left: 50%; top: 47%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(ellipse, rgba(36,181,206,.11), transparent 70%); filter: blur(7px); }
 .flight-plane { position: absolute; left: 0; top: 40%; width: 72px; height: 54px; transform-style: preserve-3d; will-change: transform; }

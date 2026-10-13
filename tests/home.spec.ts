@@ -48,3 +48,23 @@ test("connects only verified social profiles and provides a useful footer", asyn
   await expect(page.getByRole("heading", { name: /Twoja następna podróż/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /572 219 872/ }).last()).toHaveAttribute("href", "tel:+48572219872");
 });
+
+test("keeps the trust strip and scroll-driven plane above the search transition", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.getByText("Bezpieczna rezerwacja w MerlinX*")).toBeVisible();
+  const transition = page.locator(".flight-transition");
+  const plane = page.locator(".flight-plane");
+  const transitionTop = await transition.evaluate((element) => (element as HTMLElement).offsetTop);
+
+  await page.evaluate((top) => window.scrollTo(0, top - window.innerHeight * 0.8), transitionTop);
+  await page.waitForTimeout(100);
+  const firstTransform = await plane.evaluate((element) => getComputedStyle(element).transform);
+
+  await page.evaluate((top) => window.scrollTo(0, top - window.innerHeight * 0.25), transitionTop);
+  await page.waitForTimeout(100);
+  const secondTransform = await plane.evaluate((element) => getComputedStyle(element).transform);
+
+  expect(firstTransform).not.toBe(secondTransform);
+  await expect(plane).toBeVisible();
+});
