@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://summer-holiday-redesign.vercel.app"),
+  metadataBase: new URL("https://summer-holiday-redesign-chr0mzyy.vercel.app"),
   title: {
     default: "Summer Holiday — wakacje szyte na miarę",
     template: "%s | Summer Holiday",

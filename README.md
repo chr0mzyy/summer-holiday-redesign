@@ -2,6 +2,8 @@
 
 Kompletna koncepcja nowej strony biura podróży **Summer Holiday** w kierunku Mediterranean Luxury Liquid Glass. Projekt jest responsywnym demo UI w Next.js i nie udaje aktywnej integracji z MerlinX.
 
+**Live preview:** [summer-holiday-redesign-chr0mzyy.vercel.app](https://summer-holiday-redesign-chr0mzyy.vercel.app)
+
 ## Status integracji
 
 W publicznym demo:
