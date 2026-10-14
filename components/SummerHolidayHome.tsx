@@ -61,12 +61,12 @@ const destinations = [
 ];
 
 const tripStyles = [
-  { title: "Rodziny z dziećmi", eyebrow: "Top 5 hoteli", copy: "Sprawdzone udogodnienia, aquaparki i komfort dla całej rodziny.", image: "/images/destination-mallorca.webp" },
-  { title: "Wakacje dla par", eyebrow: "Tylko we dwoje", copy: "Butikowe hotele, spokojne zatoki i miejsca stworzone na wspólny czas.", image: "/images/destination-greece.webp" },
-  { title: "Wyjazdy firmowe", eyebrow: "Dla zespołów", copy: "Podróże integracyjne i firmowe dopasowane do celu, terminu i budżetu.", image: "/images/destination-amalfi.webp" },
-  { title: "Po całym świecie", eyebrow: "Top 5 wycieczek", copy: "Najciekawsze kierunki i gotowe inspiracje na dalszą podróż.", image: "/images/hero-mediterranean.webp" },
-  { title: "Kolonie", eyebrow: "Dla dzieci i młodzieży", copy: "Wypoczynek pełen przygód, nowych znajomości i dobrych wspomnień.", image: "/images/destination-greece.webp" },
-  { title: "Szyte na miarę", eyebrow: "Wyjątkowy klient", copy: "Indywidualny plan dla firmy, grupy lub podróżnika z wyjątkową wizją.", image: "/images/destination-mallorca.webp" },
+  { slug: "rodziny-z-dziecmi", title: "Rodziny z dziećmi", eyebrow: "Top 5 hoteli", copy: "Sprawdzone udogodnienia, aquaparki i komfort dla całej rodziny.", image: "/images/destination-mallorca.webp" },
+  { slug: "dla-par", title: "Wakacje dla par", eyebrow: "Tylko we dwoje", copy: "Butikowe hotele, spokojne zatoki i miejsca stworzone na wspólny czas.", image: "/images/destination-greece.webp" },
+  { slug: "wyjazdy-firmowe", title: "Wyjazdy firmowe", eyebrow: "Dla zespołów", copy: "Podróże integracyjne i firmowe dopasowane do celu, terminu i budżetu.", image: "/images/destination-amalfi.webp" },
+  { slug: "po-calym-swiecie", title: "Po całym świecie", eyebrow: "Top 5 wycieczek", copy: "Najciekawsze kierunki i gotowe inspiracje na dalszą podróż.", image: "/images/hero-mediterranean.webp" },
+  { slug: "kolonie", title: "Kolonie", eyebrow: "Dla dzieci i młodzieży", copy: "Wypoczynek pełen przygód, nowych znajomości i dobrych wspomnień.", image: "/images/destination-greece.webp" },
+  { slug: "szyte-na-miare", title: "Szyte na miarę", eyebrow: "Wyjątkowy klient", copy: "Indywidualny plan dla firmy, grupy lub podróżnika z wyjątkową wizją.", image: "/images/destination-mallorca.webp" },
 ];
 
 const reveal = {
@@ -358,9 +358,7 @@ function App() {
             {tripStyles.map((trip, index) => (
               <motion.a
                 className="audience-card"
-                href={LIVE_SITE}
-                target="_blank"
-                rel="noreferrer"
+                href={`/dla-kogo/${trip.slug}`}
                 key={trip.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -472,7 +470,7 @@ function App() {
         <div className="shell footer-grid">
           <div className="footer-brand"><BrandMark light /><p>W życiu piękne są chwile. My pomagamy zamienić je w podróż, do której wraca się pamięcią.</p><span className="footer-address"><MapPin /> Traugutta 51 · 44-370 Pszów</span><div className="socials"><a href="https://www.facebook.com/summerholidaypolska" target="_blank" rel="noreferrer" aria-label="Summer Holiday na Facebooku"><b aria-hidden="true">f</b><span>Facebook</span></a><span role="img" aria-label="Instagram — profil do podłączenia"><Camera /><span>Instagram wkrótce</span></span></div></div>
           <div className="footer-links"><h3>Odkrywaj</h3><a href="#oferty">Oferty <ArrowRight /></a><a href="#kierunki">Kierunki <ArrowRight /></a><a href={LIVE_SITE} target="_blank" rel="noreferrer">Aktualna wyszukiwarka <ExternalLink /></a></div>
-          <div className="footer-links"><h3>Summer Holiday</h3><a href={`${LIVE_SITE}aboutus`} target="_blank" rel="noreferrer">O nas <ExternalLink /></a><a href={`${LIVE_SITE}contact`} target="_blank" rel="noreferrer">Kontakt <ExternalLink /></a><a href={`${LIVE_SITE}privacyrodo`} target="_blank" rel="noreferrer">Prywatność <ExternalLink /></a></div>
+          <div className="footer-links"><h3>Summer Holiday</h3><a href="/o-nas">O nas <ArrowRight /></a><a href="/kontakt">Kontakt <ArrowRight /></a><a href="/polityka-prywatnosci">Prywatność <ArrowRight /></a></div>
           <div className="footer-contact"><h3>Kontakt</h3><a href="tel:+48572219872"><span><Phone /></span><div><small>Zadzwoń</small>572 219 872</div></a><a href="mailto:summerholiday@onet.pl"><span><Mail /></span><div><small>Napisz</small>summerholiday@onet.pl</div></a></div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Summer Holiday — koncepcja redesignu</span><span>Demo UI · docelowo połączone z systemem rezerwacyjnym</span></div>
