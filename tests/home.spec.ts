@@ -17,7 +17,7 @@ test("renders the primary journey and clearly labels demo search", async ({ page
 
   await page.getByRole("button", { name: "Szukaj" }).click();
   await expect(page.getByRole("status")).toContainText("demonstracja nowego interfejsu");
-  await expect(page.getByRole("status")).toContainText("VCMS/MerlinX");
+  await expect(page.getByRole("status")).toContainText("system rezerwacyjny");
 });
 
 test("navigation reaches destinations", async ({ page, isMobile }) => {
@@ -33,10 +33,10 @@ test("navigation reaches destinations", async ({ page, isMobile }) => {
   await expect(page.getByRole("heading", { name: /Morze Śródziemne/i })).toBeInViewport();
 });
 
-test("offer inspirations never claim live MerlinX prices", async ({ page }) => {
+test("offer inspirations explain how prices are confirmed", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByText("Cena demonstracyjna").first()).toBeVisible();
-  await expect(page.getByText(/Aktualna cena i dostępność/)).toBeVisible();
+  await expect(page.getByText(/Aktualne ceny i dostępność są zawsze potwierdzane/)).toBeVisible();
 });
 
 test("connects only verified social profiles and provides a useful footer", async ({ page }) => {
@@ -52,7 +52,7 @@ test("connects only verified social profiles and provides a useful footer", asyn
 test("keeps the trust strip and scroll-driven plane above the search transition", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByText("Bezpieczna rezerwacja w MerlinX*")).toBeVisible();
+  await expect(page.getByText("Bezpieczna rezerwacja w systemie rezerwacyjnym")).toBeVisible();
   const transition = page.locator(".flight-transition");
   const plane = page.locator(".flight-plane");
   const transitionTop = await transition.evaluate((element) => (element as HTMLElement).offsetTop);
@@ -67,4 +67,16 @@ test("keeps the trust strip and scroll-driven plane above the search transition"
 
   expect(firstTransform).not.toBe(secondTransform);
   await expect(plane).toBeVisible();
+});
+
+
+test("shows tailored trip categories, current contact details and the office map", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.getByRole("heading", { name: /Znajdź wyjazd/i })).toBeVisible();
+  await expect(page.locator(".audience-card")).toHaveCount(6);
+  await expect(page.getByText("Traugutta 51 · 44-370 Pszów")).toBeVisible();
+  await expect(page.getByTitle("Mapa dojazdu do biura Summer Holiday")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Godziny otwarcia" })).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("MerlinX");
 });

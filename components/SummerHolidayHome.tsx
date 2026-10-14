@@ -60,6 +60,15 @@ const destinations = [
   { name: "Włoskie wybrzeże", eyebrow: "Smak i zachwyt", image: "/images/destination-amalfi.webp" },
 ];
 
+const tripStyles = [
+  { title: "Rodziny z dziećmi", eyebrow: "Top 5 hoteli", copy: "Sprawdzone udogodnienia, aquaparki i komfort dla całej rodziny.", image: "/images/destination-mallorca.webp" },
+  { title: "Wakacje dla par", eyebrow: "Tylko we dwoje", copy: "Butikowe hotele, spokojne zatoki i miejsca stworzone na wspólny czas.", image: "/images/destination-greece.webp" },
+  { title: "Wyjazdy firmowe", eyebrow: "Dla zespołów", copy: "Podróże integracyjne i firmowe dopasowane do celu, terminu i budżetu.", image: "/images/destination-amalfi.webp" },
+  { title: "Po całym świecie", eyebrow: "Top 5 wycieczek", copy: "Najciekawsze kierunki i gotowe inspiracje na dalszą podróż.", image: "/images/hero-mediterranean.webp" },
+  { title: "Kolonie", eyebrow: "Dla dzieci i młodzieży", copy: "Wypoczynek pełen przygód, nowych znajomości i dobrych wspomnień.", image: "/images/destination-greece.webp" },
+  { title: "Szyte na miarę", eyebrow: "Wyjątkowy klient", copy: "Indywidualny plan dla firmy, grupy lub podróżnika z wyjątkową wizją.", image: "/images/destination-mallorca.webp" },
+];
+
 const reveal = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const } },
@@ -86,7 +95,7 @@ function Header() {
   const links = [
     ["Oferty", "#oferty"],
     ["Kierunki", "#kierunki"],
-    ["Dlaczego my", "#dlaczego-my"],
+    ["Dla kogo", "#dla-kogo"],
     ["Kontakt", "#kontakt"],
   ];
 
@@ -158,7 +167,7 @@ function SearchPanel() {
           <span className="eyebrow eyebrow--blue"><Sparkles size={14} /> Zacznij swoją podróż</span>
           <h2 id="search-title">Dokąd lecisz tego lata?</h2>
         </div>
-        <span className="demo-badge" title="Formularz nie jest połączony z MerlinX">Demo UI</span>
+        <span className="demo-badge" title="Formularz demonstracyjny — docelowe połączenie z systemem rezerwacyjnym">Demo UI</span>
       </div>
 
       <div className="travel-tabs" role="tablist" aria-label="Rodzaj dojazdu">
@@ -215,7 +224,7 @@ function SearchPanel() {
             <ShieldCheck aria-hidden="true" />
             <div>
               <strong>To demonstracja nowego interfejsu.</strong>
-              <span>Aktualne ceny, dostępność i rezerwacje obsługuje obecny system VCMS/MerlinX.</span>
+              <span>Aktualne ceny, dostępność i rezerwacje obsługuje system rezerwacyjny.</span>
             </div>
             <a href={LIVE_SITE} target="_blank" rel="noreferrer">Otwórz aktualną wyszukiwarkę <ExternalLink size={14} /></a>
             <button type="button" onClick={() => setNotice(false)} aria-label="Zamknij komunikat"><X size={16} /></button>
@@ -300,10 +309,10 @@ function App() {
 
       <section className="trust-strip" aria-label="Korzyści">
         <div className="shell trust-strip__inner">
-          <span><ShieldCheck /> Bezpieczna rezerwacja w MerlinX*</span>
+          <span><ShieldCheck /> Bezpieczna rezerwacja w systemie rezerwacyjnym</span>
           <span><Phone /> Pomoc doradcy przez telefon</span>
           <span><Compass /> Oferty wielu touroperatorów</span>
-          <small>* Po docelowym wdrożeniu integracji VCMS</small>
+          <small>Ceny i dostępność potwierdzamy przed rezerwacją</small>
         </div>
       </section>
 
@@ -313,7 +322,7 @@ function App() {
         <div className="shell">
           <motion.div className="section-heading" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={reveal}>
             <div><span className="eyebrow eyebrow--blue">Wybrane dla Ciebie</span><h2>Oferty, które<br /><em>zostają w pamięci</em></h2></div>
-            <div><p>Inspiracje prezentowane w tej wersji są demonstracyjne. Aktualna cena i dostępność są zawsze potwierdzane w MerlinX.</p><a className="text-link" href={LIVE_SITE} target="_blank" rel="noreferrer">Zobacz aktualne oferty <ArrowRight size={16} /></a></div>
+            <div><p>Inspiracje prezentowane w tej wersji są demonstracyjne. Aktualne ceny i dostępność są zawsze potwierdzane w systemie rezerwacyjnym i aktualizowane w czasie rzeczywistym.</p><a className="text-link" href={LIVE_SITE} target="_blank" rel="noreferrer">Zobacz aktualne oferty <ArrowRight size={16} /></a></div>
           </motion.div>
           <motion.div className="offers-grid" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} transition={{ staggerChildren: 0.12 }}>
             {offers.map((offer, index) => <OfferCard key={offer.place} offer={offer} index={index} />)}
@@ -333,6 +342,35 @@ function App() {
                 <Image src={destination.image} alt={destination.name} fill sizes="(max-width: 800px) 90vw, 40vw" className="cover" />
                 <span className="destination-card__wash" />
                 <div><span>{destination.eyebrow}</span><h3>{destination.name}</h3><span className="destination-card__link">Odkryj <ArrowRight /></span></div>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="dla-kogo" className="section audience-section" aria-labelledby="audience-title">
+        <div className="shell">
+          <div className="section-heading">
+            <div><span className="eyebrow eyebrow--blue">Wakacje dla Ciebie</span><h2 id="audience-title">Znajdź wyjazd<br /><em>dla swojej historii</em></h2></div>
+            <div><p>Od rodzinnego hotelu po podróż szytą na miarę — wybierz kategorię, a my pomożemy dopasować szczegóły.</p><a className="text-link" href="tel:+48572219872">Zapytaj o dostępność <Phone size={16} /></a></div>
+          </div>
+          <div className="audience-grid">
+            {tripStyles.map((trip, index) => (
+              <motion.a
+                className="audience-card"
+                href={LIVE_SITE}
+                target="_blank"
+                rel="noreferrer"
+                key={trip.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+              >
+                <Image src={trip.image} alt="" fill sizes="(max-width: 800px) 90vw, 33vw" className="cover" />
+                <span className="audience-card__wash" />
+                <span className="audience-card__number">0{index + 1}</span>
+                <div><span>{trip.eyebrow}</span><h3>{trip.title}</h3><p>{trip.copy}</p><span className="audience-card__link">Zobacz propozycje <ArrowRight /></span></div>
               </motion.a>
             ))}
           </div>
@@ -394,9 +432,13 @@ function App() {
         <div className="shell">
           <div className="section-heading section-heading--center"><span className="eyebrow eyebrow--gold">Prosty plan</span><h2 id="process-title">Od marzenia<br /><em>do walizki</em></h2></div>
           <div className="process-grid">
-            {[ ["01", "Znajdź", "Wybierz kierunek, termin i liczbę podróżnych."], ["02", "Porównaj", "Sprawdź standard, wyżywienie i warunki oferty."], ["03", "Zarezerwuj", "Potwierdź dostępność i przejdź bezpieczną ścieżkę MerlinX."] ].map(([number, title, body]) => (
+            {[ ["01", "Wyszukaj", "Wybierz kierunek, termin i liczbę podróżnych."], ["02", "Porównaj", "Skontaktuj się z nami, aby potwierdzić cenę, dostępność oraz usługi dodatkowe — w tym bagaż i transfer."], ["03", "Zarezerwuj", "Tylko jeden krok dzieli Cię od Twoich wymarzonych wakacji."] ].map(([number, title, body]) => (
               <div className="process-card glass" key={number}><span>{number}</span><div><h3>{title}</h3><p>{body}</p></div></div>
             ))}
+          </div>
+          <div className="process-contact glass">
+            <div><span className="eyebrow eyebrow--blue">Sprawdź dostępność</span><strong>Potwierdzimy cenę, bagaż, transfer i wszystkie usługi dodatkowe.</strong></div>
+            <a className="button" href="tel:+48572219872"><Phone size={17} /> 572 219 872</a>
           </div>
         </div>
       </section>
@@ -414,12 +456,30 @@ function App() {
           <div><p>Powiedz nam, gdzie chcesz odpocząć. Zajmiemy się wyborem właściwej oferty i spokojnym przejściem przez rezerwację.</p><div className="footer-invitation__actions"><a className="button button--light" href="tel:+48572219872"><Phone /> 572 219 872</a><a href="mailto:summerholiday@onet.pl">Napisz wiadomość <ArrowRight /></a></div></div>
         </div>
         <div className="shell footer-grid">
-          <div className="footer-brand"><BrandMark light /><p>W życiu piękne są chwile. My pomagamy zamienić je w podróż, do której wraca się pamięcią.</p><span className="footer-address"><MapPin /> Traugutta 52 · 44-370 Pszów</span><div className="socials"><a href="https://www.facebook.com/summerholidaypolska" target="_blank" rel="noreferrer" aria-label="Summer Holiday na Facebooku"><b aria-hidden="true">f</b><span>Facebook</span></a><span role="img" aria-label="Instagram — profil do podłączenia"><Camera /><span>Instagram wkrótce</span></span></div></div>
+          <div className="footer-brand"><BrandMark light /><p>W życiu piękne są chwile. My pomagamy zamienić je w podróż, do której wraca się pamięcią.</p><span className="footer-address"><MapPin /> Traugutta 51 · 44-370 Pszów</span><div className="socials"><a href="https://www.facebook.com/summerholidaypolska" target="_blank" rel="noreferrer" aria-label="Summer Holiday na Facebooku"><b aria-hidden="true">f</b><span>Facebook</span></a><span role="img" aria-label="Instagram — profil do podłączenia"><Camera /><span>Instagram wkrótce</span></span></div></div>
           <div className="footer-links"><h3>Odkrywaj</h3><a href="#oferty">Oferty <ArrowRight /></a><a href="#kierunki">Kierunki <ArrowRight /></a><a href={LIVE_SITE} target="_blank" rel="noreferrer">Aktualna wyszukiwarka <ExternalLink /></a></div>
           <div className="footer-links"><h3>Summer Holiday</h3><a href={`${LIVE_SITE}aboutus`} target="_blank" rel="noreferrer">O nas <ExternalLink /></a><a href={`${LIVE_SITE}contact`} target="_blank" rel="noreferrer">Kontakt <ExternalLink /></a><a href={`${LIVE_SITE}privacyrodo`} target="_blank" rel="noreferrer">Prywatność <ExternalLink /></a></div>
-          <div className="footer-contact"><h3>Kontakt</h3><a href="tel:+48572219872"><span><Phone /></span><div><small>Zadzwoń</small>572 219 872</div></a><a href="tel:+48605425620"><span><Phone /></span><div><small>Drugi numer</small>605 425 620</div></a><a href="mailto:summerholiday@onet.pl"><span><Mail /></span><div><small>Napisz</small>summerholiday@onet.pl</div></a></div>
+          <div className="footer-contact"><h3>Kontakt</h3><a href="tel:+48572219872"><span><Phone /></span><div><small>Zadzwoń</small>572 219 872</div></a><a href="mailto:summerholiday@onet.pl"><span><Mail /></span><div><small>Napisz</small>summerholiday@onet.pl</div></a></div>
         </div>
-        <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Summer Holiday — koncepcja redesignu</span><span>Demo UI · bez aktywnej integracji MerlinX</span></div>
+        <div className="shell footer-location">
+          <div className="footer-hours">
+            <span className="eyebrow">Odwiedź nasze biuro</span>
+            <h3>Godziny otwarcia</h3>
+            <dl>
+              <div><dt>Poniedziałek</dt><dd>10:00–18:00</dd></div>
+              <div><dt>Wtorek–środa</dt><dd>09:00–17:00</dd></div>
+              <div><dt>Czwartek</dt><dd>10:00–18:00</dd></div>
+              <div><dt>Piątek</dt><dd>09:00–17:00</dd></div>
+              <div><dt>Sobota</dt><dd>10:00–14:00</dd></div>
+              <div><dt>Niedziela</dt><dd>Nieczynne</dd></div>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Traugutta+51%2C+44-370+Psz%C3%B3w" target="_blank" rel="noreferrer"><MapPin /> Traugutta 51, 44-370 Pszów <ExternalLink /></a>
+          </div>
+          <div className="footer-map">
+            <iframe title="Mapa dojazdu do biura Summer Holiday" src="https://www.google.com/maps?q=Traugutta+51%2C+44-370+Psz%C3%B3w&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          </div>
+        </div>
+        <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Summer Holiday — koncepcja redesignu</span><span>Demo UI · docelowo połączone z systemem rezerwacyjnym</span></div>
       </footer>
     </main>
   );
