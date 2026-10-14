@@ -10,6 +10,8 @@ for (const item of [
   { name: "dla-kogo-desktop", path: "/dla-kogo", width: 1440, height: 1000 },
   { name: "kontakt-desktop", path: "/kontakt", width: 1440, height: 1000 },
   { name: "rodzina-mobile", path: "/dla-kogo/rodziny-z-dziecmi", width: 390, height: 844 },
+  { name: "privacy-desktop", path: "/polityka-prywatnosci", width: 1440, height: 1000 },
+  { name: "privacy-mobile", path: "/polityka-prywatnosci", width: 390, height: 844 },
 ]) {
   const page = await browser.newPage({
     viewport: { width: item.width, height: item.height },

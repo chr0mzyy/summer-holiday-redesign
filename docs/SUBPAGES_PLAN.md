@@ -9,7 +9,7 @@ Produkcja VCMS: bez zmian.
 | --- | --- | --- |
 | `/o-nas` | historia biura, wartości, CTA | gotowy widok |
 | `/kontakt` | kontakt, godziny, mapa, formularz | przygotowanie wiadomości w programie pocztowym |
-| `/polityka-prywatnosci` | obowiązujący dokument prawny | przekierowanie do aktualnej polityki firmy |
+| `/polityka-prywatnosci` | ochrona danych, cookies i prawa użytkownika | lokalna podstrona na podstawie polityki firmy |
 | `/dla-kogo` | przegląd sześciu typów wyjazdów | gotowy widok |
 | `/dla-kogo/rodziny-z-dziecmi` | rodziny, top 5 hoteli | gotowy widok |
 | `/dla-kogo/dla-par` | wyjazdy dla par | gotowy widok |
@@ -22,7 +22,7 @@ Produkcja VCMS: bez zmian.
 
 1. Formularz na stronie nie zapisuje danych; przygotowuje wiadomość w programie pocztowym użytkownika.
 2. Nie kopiować identyfikatorów widgetów, tokenów ani konfiguracji konta do publicznego repozytorium.
-3. Treść polityki prywatności przenieść bez zmiany znaczenia i zatwierdzić przed wdrożeniem.
+3. Treść polityki prywatności została przeniesiona bez zmiany znaczenia i dopasowana do obecnego działania formularza; dokument powinien przejść okresową weryfikację prawną.
 4. Podstrony ofertowe nie pokazują fikcyjnej dostępności ani cen.
 5. Po otrzymaniu zgody porównać mapowanie tras z konfiguracją panelu VCMS na środowisku testowym.
 6. Dopiero po testach wykonać push do `main` oraz osobno zatwierdzone zmiany w VCMS.

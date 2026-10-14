@@ -26,8 +26,11 @@ test("links all audience cards to prepared detail pages", async ({ page }) => {
   await expect(page.getByText("Aktualną cenę i dostępność zawsze potwierdzamy")).toBeVisible();
 });
 
-test("redirects privacy traffic to the currently binding company policy", async ({ request }) => {
-  const response = await request.get("/polityka-prywatnosci", { maxRedirects: 0 });
-  expect(response.status()).toBe(307);
-  expect(response.headers().location).toBe("https://biurosummerholiday.pl/privacyrodo");
+test("renders the company privacy policy locally", async ({ page }) => {
+  await page.goto("/polityka-prywatnosci");
+  await expect(page).toHaveURL(/\/polityka-prywatnosci$/);
+  await expect(page.getByRole("heading", { name: /Polityka ochrony/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Administrator danych osobowych" })).toBeVisible();
+  await expect(page.getByText(/Dane nie są zapisywane ani wysyłane przez serwer tej strony/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "uodo.gov.pl" })).toHaveAttribute("href", "https://uodo.gov.pl/");
 });
