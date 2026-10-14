@@ -6,8 +6,15 @@ export default function Home() {
     "@type": "TravelAgency",
     name: "Summer Holiday",
     url: "https://biurosummerholiday.pl/",
-    telephone: ["+48572219872", "+48605425620"],
+    telephone: "+48572219872",
     email: "summerholiday@onet.pl",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Traugutta 51",
+      postalCode: "44-370",
+      addressLocality: "Pszów",
+      addressCountry: "PL",
+    },
   };
 
   return (
