@@ -113,3 +113,26 @@ test("keeps mobile section transitions compact and continuous", async ({ page, i
   expect(await gap(".process-contact", ".social-section .social-heading")).toBeLessThan(80);
   expect(await gap(".social-stage", ".location-section")).toBeLessThan(40);
 });
+
+test("keeps desktop content close across adjacent sections", async ({ page, isMobile }) => {
+  test.skip(isMobile, "Desktop spacing regression check");
+  await page.goto("/");
+
+  const gap = async (from: string, to: string) => {
+    await page.locator(from).last().scrollIntoViewIfNeeded();
+    await page.locator(to).first().scrollIntoViewIfNeeded();
+    await page.waitForTimeout(700);
+    const [fromBox, toBox] = await Promise.all([
+      page.locator(from).last().boundingBox(),
+      page.locator(to).first().boundingBox(),
+    ]);
+    expect(fromBox).not.toBeNull();
+    expect(toBox).not.toBeNull();
+    return (toBox?.y ?? 0) - ((fromBox?.y ?? 0) + (fromBox?.height ?? 0));
+  };
+
+  expect(await gap(".offer-card", ".destinations-section .section-heading")).toBeLessThan(110);
+  expect(await gap(".destination-card", ".audience-section .section-heading")).toBeLessThan(110);
+  expect(await gap(".audience-card", ".process-section .section-heading")).toBeLessThan(110);
+  expect(await gap(".process-contact", ".social-section .social-heading")).toBeLessThan(110);
+});
