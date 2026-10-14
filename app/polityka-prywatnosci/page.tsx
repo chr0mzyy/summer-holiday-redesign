@@ -52,12 +52,12 @@ export default function PrivacyPage() {
             <h2>Twoja prywatność jest dla nas ważna.</h2>
             <p>
               Dbamy o bezpieczeństwo danych osobowych oraz informacji zapisywanych w plikach cookies i podobnych
-              technologiach. Podczas samego przeglądania lub porównywania ofert nie prosimy o podanie danych
-              osobowych.
+              technologiach. Podczas wyszukiwania i porównywania ofert przetwarzane mogą być wybrane kryteria
+              podróży oraz dane techniczne niezbędne do wyświetlenia aktualnych wyników.
             </p>
             <p>
-              Dane takie jak imię, nazwisko, dane kontaktowe, data urodzenia lub adres mogą zostać przekazane
-              dopiero podczas kontaktu z biurem albo rozpoczęcia procesu rezerwacji w systemie rezerwacyjnym.
+              Dane identyfikujące podróżnego, takie jak imię, nazwisko, dane kontaktowe, data urodzenia lub adres,
+              mogą zostać przekazane dopiero podczas kontaktu z biurem albo rozpoczęcia procesu rezerwacji.
             </p>
 
             <div className="legal-note">
@@ -67,6 +67,24 @@ export default function PrivacyPage() {
                 wysyłane przez serwer tej strony.
               </p>
             </div>
+
+            <h3>Wyszukiwarka ofert i system rezerwacyjny</h3>
+            <p>
+              Wyszukiwarka dostępna na stronie może przekazywać do zintegrowanego systemu rezerwacyjnego kryteria
+              wybrane przez użytkownika, takie jak kierunek, termin, miejsce wylotu oraz liczba i wiek podróżnych.
+              Informacje te służą do przedstawienia aktualnych ofert, cen i dostępności.
+            </p>
+            <p>
+              Moduł wyszukiwania lub kolejne kroki rezerwacji mogą być technicznie obsługiwane przez dostawcę
+              systemu rezerwacyjnego. Dostawca może przetwarzać niezbędne dane techniczne i pliki cookies na
+              zasadach przedstawionych użytkownikowi w tym module. Dane identyfikujące uczestników wyjazdu są
+              wymagane dopiero na etapie kontaktu lub rezerwacji, a właściwy administrator i zakres przetwarzania
+              są wskazywane w dokumentach oraz komunikatach procesu rezerwacyjnego.
+            </p>
+            <p>
+              Wyniki wyszukiwania odzwierciedlają dane systemu w chwili zapytania. Ostateczna cena, dostępność i
+              zakres usług dodatkowych są potwierdzane przed zawarciem umowy.
+            </p>
 
             <h3>Administrator danych osobowych</h3>
             <p>
@@ -160,8 +178,9 @@ export default function PrivacyPage() {
             <h3>Pliki cookies</h3>
             <p>
               Serwis może wykorzystywać pliki cookies niezbędne do prawidłowego działania oraz zapewnienia
-              bezpieczeństwa. Zewnętrzny system rezerwacyjny i osadzona mapa Google mogą stosować własne zasady
-              dotyczące cookies i prywatności.
+              bezpieczeństwa. Zintegrowana wyszukiwarka, system rezerwacyjny i osadzona mapa Google mogą stosować
+              własne pliki cookies oraz zasady dotyczące prywatności. Szczegółowe informacje powinny być dostępne
+              w komunikatach prezentowanych przez te usługi.
             </p>
 
             <h3>Zmiany polityki prywatności</h3>

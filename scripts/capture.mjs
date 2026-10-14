@@ -37,6 +37,7 @@ async function capture(name, viewport, isMobile = false) {
 }
 
 await capture("summer-holiday-desktop.png", { width: 1440, height: 1000 });
+await capture("summer-holiday-tablet-mobile.png", { width: 651, height: 854 }, true);
 await capture("summer-holiday-mobile.png", { width: 390, height: 844 }, true);
 
 await browser.close();

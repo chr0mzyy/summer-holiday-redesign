@@ -89,3 +89,27 @@ test("shows tailored trip categories, current contact details and the office map
   ]);
   await expect(page.locator("body")).not.toContainText("MerlinX");
 });
+
+test("keeps mobile section transitions compact and continuous", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "Mobile spacing regression check");
+  await page.goto("/");
+
+  const gap = async (from: string, to: string) => {
+    await page.locator(to).first().scrollIntoViewIfNeeded();
+    await page.waitForTimeout(120);
+    const [fromBox, toBox] = await Promise.all([
+      page.locator(from).last().boundingBox(),
+      page.locator(to).first().boundingBox(),
+    ]);
+    expect(fromBox).not.toBeNull();
+    expect(toBox).not.toBeNull();
+    return (toBox?.y ?? 0) - ((fromBox?.y ?? 0) + (fromBox?.height ?? 0));
+  };
+
+  expect(await gap(".hero__actions", ".search-card")).toBeLessThan(140);
+  expect(await gap(".offer-card", ".destinations-section .section-heading")).toBeLessThan(80);
+  expect(await gap(".destination-card", ".audience-section .section-heading")).toBeLessThan(80);
+  expect(await gap(".audience-card", ".process-section .section-heading")).toBeLessThan(80);
+  expect(await gap(".process-contact", ".social-section .social-heading")).toBeLessThan(80);
+  expect(await gap(".social-stage", ".location-section")).toBeLessThan(40);
+});

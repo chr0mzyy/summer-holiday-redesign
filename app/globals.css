@@ -324,9 +324,18 @@ main { overflow: hidden; }
   box-shadow: 0 0 0 58px rgba(255,255,255,.018), 0 0 0 116px rgba(255,255,255,.012);
   pointer-events: none;
 }
+.location-section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 auto;
+  height: 112px;
+  background: linear-gradient(180deg, #f8f3e9 0%, rgba(229,241,239,.72) 32%, rgba(6,43,56,0) 100%);
+  pointer-events: none;
+}
 .location-section .footer-location { margin-top: 0; }
 
-.footer-location { position: relative; margin-top: 62px; display: grid; grid-template-columns: .72fr 1.28fr; overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 28px; background: rgba(255,255,255,.045); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
+.footer-location { position: relative; z-index: 1; margin-top: 62px; display: grid; grid-template-columns: .72fr 1.28fr; overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 28px; background: rgba(255,255,255,.045); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
 .footer-hours { padding: 35px 38px; }
 .footer-hours .eyebrow { color: #ead8b4; }
 .footer-hours h3 { margin: 11px 0 23px; color: white; font: 500 30px var(--serif); }
@@ -371,7 +380,7 @@ main { overflow: hidden; }
   .brand { width: 126px; height: 56px; padding: 4px 8px; }
   .brand--light { width: 154px; height: 91px; padding: 8px 11px; }
   .phone-link, .header-actions > .button { display: none; }
-  .hero { height: 880px; min-height: 880px; }
+  .hero { height: 760px; min-height: 760px; }
   .hero__image { object-position: 69% center; }
   .hero__veil { background: linear-gradient(90deg, rgba(5,37,46,.76), rgba(5,37,46,.31)), linear-gradient(0deg, rgba(5,35,45,.67), transparent 60%); }
   .hero__content { align-items: flex-start; padding-top: 180px; }
@@ -379,7 +388,7 @@ main { overflow: hidden; }
   .hero h1 { font-size: clamp(50px, 14vw, 72px); max-width: 610px; }
   .hero__content p { max-width: 470px; font-size: 15px; }
   .hero__side-label, .hero__orb { display: none; }
-  .search-wrap { margin-top: -185px; }
+  .search-wrap { margin-top: -155px; }
   .search-card { padding: 128px 18px 19px; border-radius: 24px; }
   .search-card__top { top: 22px; left: 20px; right: 20px; }
   .search-card h2 { font-size: 24px; }
@@ -393,7 +402,12 @@ main { overflow: hidden; }
   .flight-transition { height: 86px; }
   .flight-plane { width: 62px; height: 48px; }
   .flight-plane__trail { width: 76px; }
-  .section { padding: 88px 0; }
+  .section { padding: 64px 0; }
+  .offers-section { padding-bottom: 30px; }
+  .destinations-section { padding-top: 34px; padding-bottom: 30px; }
+  .audience-section { padding-top: 34px; padding-bottom: 30px; }
+  .process-section { padding-top: 34px; padding-bottom: 30px; }
+  .social-section { padding-top: 34px; padding-bottom: 32px; }
   .section-heading { grid-template-columns: 1fr; gap: 24px; margin-bottom: 38px; }
   .section-heading h2, .social-heading h2 { font-size: clamp(41px, 10vw, 58px); }
   .section-heading p { max-width: 100%; }
@@ -422,14 +436,14 @@ main { overflow: hidden; }
 @media (max-width: 520px) {
   .location-section { padding: 58px 0; }
   .shell { width: calc(100% - 22px); }
-  .hero { height: 900px; }
+  .hero { height: 800px; min-height: 800px; }
   .hero__content { padding-top: 150px; }
   .hero h1 { font-size: 51px; }
   .hero__kicker { font-size: 9px; }
   .hero__actions { align-items: flex-start; flex-direction: column; gap: 17px; }
   .button--hero { width: min(100%, 310px); min-height: 70px; padding-inline: 25px 22px; }
   .button--hero strong { font-size: 16px; }
-  .search-wrap { margin-top: -234px; }
+  .search-wrap { margin-top: -180px; }
   .search-card { padding-top: 131px; }
   .search-card__top { flex-direction: column; gap: 7px; }
   .system-badge { position: absolute; right: 0; top: 0; }
@@ -439,7 +453,12 @@ main { overflow: hidden; }
   .field--destination, .search-submit { grid-column: auto; }
   .advanced-fields { grid-template-columns: 1fr; }
   .trust-strip__inner { display: grid; }
-  .section { padding: 74px 0; }
+  .section { padding: 56px 0; }
+  .offers-section { padding-bottom: 28px; }
+  .destinations-section { padding-top: 30px; padding-bottom: 28px; }
+  .audience-section { padding-top: 30px; padding-bottom: 28px; }
+  .process-section { padding-top: 30px; padding-bottom: 28px; }
+  .social-section { padding-top: 30px; padding-bottom: 28px; }
   .destination-grid { grid-template-rows: repeat(3, 370px); }
   .audience-grid { grid-template-columns: 1fr; }
   .audience-card { min-height: 350px; }
