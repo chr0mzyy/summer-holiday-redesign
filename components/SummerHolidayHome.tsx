@@ -464,14 +464,7 @@ function App() {
         </div>
       </section>
 
-      <section id="kontakt" className="cta-section">
-        <div className="shell cta-card">
-          <div><span className="eyebrow eyebrow--gold">Twój następny rozdział</span><h2>Dokąd zabierze Cię<br /><em>to lato?</em></h2></div>
-          <div><p>Opowiedz nam o swoim wymarzonym wyjeździe. Pomożemy znaleźć wariant dopasowany do Ciebie.</p><div className="cta-actions"><a className="button button--light" href="tel:+48572219872"><Phone size={17} /> Zadzwoń</a><a className="text-link text-link--light" href="mailto:summerholiday@onet.pl"><Mail size={16} /> Napisz e-mail</a></div></div>
-        </div>
-      </section>
-
-      <footer className="site-footer">
+      <footer id="kontakt" className="site-footer">
         <div className="shell footer-invitation">
           <div><span className="eyebrow">Zaczynamy?</span><h2>Twoja następna podróż<br /><em>może zacząć się dziś.</em></h2></div>
           <div><p>Powiedz nam, gdzie chcesz odpocząć. Zajmiemy się wyborem właściwej oferty i spokojnym przejściem przez rezerwację.</p><div className="footer-invitation__actions"><a className="button button--light" href="tel:+48572219872"><Phone /> 572 219 872</a><a href="mailto:summerholiday@onet.pl">Napisz wiadomość <ArrowRight /></a></div></div>

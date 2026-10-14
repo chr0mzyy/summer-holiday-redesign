@@ -171,8 +171,8 @@ main { overflow: hidden; }
 .section { padding: 120px 0; }
 .offers-section { background: radial-gradient(circle at 85% 10%, rgba(36,181,206,.09), transparent 24%), var(--ivory); }
 .section-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: end; margin-bottom: 58px; }
-.section-heading h2, .social-heading h2, .cta-card h2 { margin: 13px 0 0; font: 400 clamp(42px, 5vw, 68px)/1.02 var(--serif); letter-spacing: -.05em; }
-.section-heading h2 em, .social-heading h2 em, .cta-card h2 em { color: var(--ocean); font-weight: 400; }
+.section-heading h2, .social-heading h2 { margin: 13px 0 0; font: 400 clamp(42px, 5vw, 68px)/1.02 var(--serif); letter-spacing: -.05em; }
+.section-heading h2 em, .social-heading h2 em { color: var(--ocean); font-weight: 400; }
 .section-heading > div:last-child { align-self: end; padding-bottom: 5px; }
 .section-heading p { max-width: 430px; margin: 0 0 22px; color: var(--ink-soft); font-size: 14px; line-height: 1.75; }
 .section-heading--center { display: block; text-align: center; margin-bottom: 56px; }
@@ -276,15 +276,6 @@ main { overflow: hidden; }
 .process-contact > div { display: grid; gap: 8px; }
 .process-contact strong { max-width: 670px; font: 500 20px/1.25 var(--serif); }
 .process-contact .button { flex: 0 0 auto; }
-
-.cta-section { padding: 0 0 24px; background: var(--ivory-soft); }
-.cta-card { min-height: 340px; border-radius: 34px; background: radial-gradient(circle at 84% 15%, rgba(54,188,207,.35), transparent 27%), linear-gradient(130deg, #07394c, #075e76 68%, #087b93); color: white; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 70px; padding: 65px 70px; position: relative; overflow: hidden; box-shadow: 0 35px 90px rgba(5,69,87,.22); }
-.cta-card::before { content: ""; position: absolute; width: 240px; height: 240px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; right: -60px; bottom: -100px; box-shadow: 0 0 0 42px rgba(255,255,255,.035), 0 0 0 84px rgba(255,255,255,.02); }
-.cta-card h2 em { color: #e7d3aa; }
-.cta-card .eyebrow--gold { color: #ead8b4; }
-.cta-card > div:last-child { position: relative; z-index: 2; }
-.cta-card p { color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.75; margin: 0 0 25px; max-width: 430px; }
-.cta-actions { display: flex; align-items: center; gap: 20px; }
 
 .site-footer { position: relative; overflow: hidden; background: radial-gradient(circle at 84% 8%, rgba(36,181,206,.16), transparent 23%), radial-gradient(circle at 8% 84%, rgba(200,164,100,.1), transparent 21%), #062b38; color: rgba(255,255,255,.74); padding: 28px 0 25px; margin-top: 0; }
 .site-footer::before { content: ""; position: absolute; width: 390px; height: 390px; right: -230px; top: 31%; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; box-shadow: 0 0 0 54px rgba(255,255,255,.018), 0 0 0 108px rgba(255,255,255,.012); pointer-events: none; }
@@ -413,7 +404,7 @@ main { overflow: hidden; }
   .flight-plane__trail { width: 76px; }
   .section { padding: 88px 0; }
   .section-heading { grid-template-columns: 1fr; gap: 24px; margin-bottom: 38px; }
-  .section-heading h2, .social-heading h2, .cta-card h2 { font-size: clamp(41px, 10vw, 58px); }
+  .section-heading h2, .social-heading h2 { font-size: clamp(41px, 10vw, 58px); }
   .section-heading p { max-width: 100%; }
   .offers-grid { grid-template-columns: 1fr; gap: 18px; }
   .offer-card__image { aspect-ratio: 16/10; }
@@ -428,7 +419,6 @@ main { overflow: hidden; }
   .social-photo { grid-row: 1 / span 2; min-height: 300px; }
   .social-connect { min-height: 148px; }
   .process-grid { grid-template-columns: 1fr; }
-  .cta-card { grid-template-columns: 1fr; gap: 30px; padding: 50px 35px; }
   .footer-invitation { grid-template-columns: 1fr; gap: 28px; padding: 44px 38px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 25px; }
   .footer-brand { grid-column: 1 / span 2; }
@@ -473,8 +463,6 @@ main { overflow: hidden; }
   .social-connect__status { display: none; }
   .process-contact { align-items: flex-start; flex-direction: column; }
   .process-contact .button { width: 100%; }
-  .cta-card { padding: 42px 24px; }
-  .cta-actions { align-items: flex-start; flex-direction: column; }
   .footer-invitation { padding: 38px 24px; border-radius: 25px; }
   .footer-invitation__actions { align-items: flex-start; flex-direction: column; }
   .footer-grid { grid-template-columns: 1fr; }
