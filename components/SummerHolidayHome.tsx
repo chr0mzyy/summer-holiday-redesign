@@ -377,6 +377,21 @@ function App() {
         </div>
       </section>
 
+      <section className="section process-section" aria-labelledby="process-title">
+        <div className="shell">
+          <div className="section-heading section-heading--center"><span className="eyebrow eyebrow--gold">Prosty plan</span><h2 id="process-title">Od marzenia<br /><em>do walizki</em></h2></div>
+          <div className="process-grid">
+            {[ ["01", "Wyszukaj", "Wybierz kierunek, termin i liczbę podróżnych."], ["02", "Porównaj", "Skontaktuj się z nami, aby potwierdzić cenę, dostępność oraz usługi dodatkowe — w tym bagaż i transfer."], ["03", "Zarezerwuj", "Tylko jeden krok dzieli Cię od Twoich wymarzonych wakacji."] ].map(([number, title, body]) => (
+              <div className="process-card glass" key={number}><span>{number}</span><div><h3>{title}</h3><p>{body}</p></div></div>
+            ))}
+          </div>
+          <div className="process-contact glass">
+            <div><span className="eyebrow eyebrow--blue">Sprawdź dostępność</span><strong>Potwierdzimy cenę, bagaż, transfer i wszystkie usługi dodatkowe.</strong></div>
+            <a className="button" href="tel:+48572219872"><Phone size={17} /> 572 219 872</a>
+          </div>
+        </div>
+      </section>
+
       <section id="dlaczego-my" className="section social-section" aria-labelledby="social-title">
         <div className="shell">
           <motion.div className="social-heading" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={reveal}>
@@ -428,17 +443,23 @@ function App() {
         </div>
       </section>
 
-      <section className="section process-section" aria-labelledby="process-title">
-        <div className="shell">
-          <div className="section-heading section-heading--center"><span className="eyebrow eyebrow--gold">Prosty plan</span><h2 id="process-title">Od marzenia<br /><em>do walizki</em></h2></div>
-          <div className="process-grid">
-            {[ ["01", "Wyszukaj", "Wybierz kierunek, termin i liczbę podróżnych."], ["02", "Porównaj", "Skontaktuj się z nami, aby potwierdzić cenę, dostępność oraz usługi dodatkowe — w tym bagaż i transfer."], ["03", "Zarezerwuj", "Tylko jeden krok dzieli Cię od Twoich wymarzonych wakacji."] ].map(([number, title, body]) => (
-              <div className="process-card glass" key={number}><span>{number}</span><div><h3>{title}</h3><p>{body}</p></div></div>
-            ))}
+      <section className="location-section" aria-labelledby="location-title">
+        <div className="shell footer-location">
+          <div className="footer-hours">
+            <span className="eyebrow">Odwiedź nasze biuro</span>
+            <h3 id="location-title">Godziny otwarcia</h3>
+            <dl>
+              <div><dt>Poniedziałek</dt><dd>10:00–18:00</dd></div>
+              <div><dt>Wtorek–środa</dt><dd>09:00–17:00</dd></div>
+              <div><dt>Czwartek</dt><dd>10:00–18:00</dd></div>
+              <div><dt>Piątek</dt><dd>09:00–17:00</dd></div>
+              <div><dt>Sobota</dt><dd>10:00–14:00</dd></div>
+              <div><dt>Niedziela</dt><dd>Nieczynne</dd></div>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Traugutta+51%2C+44-370+Psz%C3%B3w" target="_blank" rel="noreferrer"><MapPin /> Traugutta 51, 44-370 Pszów <ExternalLink /></a>
           </div>
-          <div className="process-contact glass">
-            <div><span className="eyebrow eyebrow--blue">Sprawdź dostępność</span><strong>Potwierdzimy cenę, bagaż, transfer i wszystkie usługi dodatkowe.</strong></div>
-            <a className="button" href="tel:+48572219872"><Phone size={17} /> 572 219 872</a>
+          <div className="footer-map">
+            <iframe title="Mapa dojazdu do biura Summer Holiday" src="https://www.google.com/maps?q=Traugutta+51%2C+44-370+Psz%C3%B3w&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
         </div>
       </section>
@@ -460,24 +481,6 @@ function App() {
           <div className="footer-links"><h3>Odkrywaj</h3><a href="#oferty">Oferty <ArrowRight /></a><a href="#kierunki">Kierunki <ArrowRight /></a><a href={LIVE_SITE} target="_blank" rel="noreferrer">Aktualna wyszukiwarka <ExternalLink /></a></div>
           <div className="footer-links"><h3>Summer Holiday</h3><a href={`${LIVE_SITE}aboutus`} target="_blank" rel="noreferrer">O nas <ExternalLink /></a><a href={`${LIVE_SITE}contact`} target="_blank" rel="noreferrer">Kontakt <ExternalLink /></a><a href={`${LIVE_SITE}privacyrodo`} target="_blank" rel="noreferrer">Prywatność <ExternalLink /></a></div>
           <div className="footer-contact"><h3>Kontakt</h3><a href="tel:+48572219872"><span><Phone /></span><div><small>Zadzwoń</small>572 219 872</div></a><a href="mailto:summerholiday@onet.pl"><span><Mail /></span><div><small>Napisz</small>summerholiday@onet.pl</div></a></div>
-        </div>
-        <div className="shell footer-location">
-          <div className="footer-hours">
-            <span className="eyebrow">Odwiedź nasze biuro</span>
-            <h3>Godziny otwarcia</h3>
-            <dl>
-              <div><dt>Poniedziałek</dt><dd>10:00–18:00</dd></div>
-              <div><dt>Wtorek–środa</dt><dd>09:00–17:00</dd></div>
-              <div><dt>Czwartek</dt><dd>10:00–18:00</dd></div>
-              <div><dt>Piątek</dt><dd>09:00–17:00</dd></div>
-              <div><dt>Sobota</dt><dd>10:00–14:00</dd></div>
-              <div><dt>Niedziela</dt><dd>Nieczynne</dd></div>
-            </dl>
-            <a href="https://www.google.com/maps/search/?api=1&query=Traugutta+51%2C+44-370+Psz%C3%B3w" target="_blank" rel="noreferrer"><MapPin /> Traugutta 51, 44-370 Pszów <ExternalLink /></a>
-          </div>
-          <div className="footer-map">
-            <iframe title="Mapa dojazdu do biura Summer Holiday" src="https://www.google.com/maps?q=Traugutta+51%2C+44-370+Psz%C3%B3w&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-          </div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Summer Holiday — koncepcja redesignu</span><span>Demo UI · docelowo połączone z systemem rezerwacyjnym</span></div>
       </footer>

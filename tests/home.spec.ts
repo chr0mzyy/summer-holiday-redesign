@@ -78,5 +78,13 @@ test("shows tailored trip categories, current contact details and the office map
   await expect(page.getByText("Traugutta 51 · 44-370 Pszów")).toBeVisible();
   await expect(page.getByTitle("Mapa dojazdu do biura Summer Holiday")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Godziny otwarcia" })).toBeVisible();
+  const sectionOrder = await page
+    .locator(".process-section, .social-section, .location-section")
+    .evaluateAll((sections) => sections.map((section) => section.className));
+  expect(sectionOrder).toEqual([
+    "section process-section",
+    "section social-section",
+    "location-section",
+  ]);
   await expect(page.locator("body")).not.toContainText("MerlinX");
 });
