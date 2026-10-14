@@ -121,11 +121,11 @@ function Header() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="mobile-nav glass"
+            className="mobile-nav"
             aria-label="Nawigacja mobilna"
-            initial={{ opacity: 0, y: -12, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -12, scale: 0.98 }}
+            initial={{ y: -12, scale: 0.98 }}
+            animate={{ y: 0, scale: 1 }}
+            exit={{ y: -12, scale: 0.98 }}
           >
             {links.map(([label, href]) => (
               <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowRight size={16} /></a>
