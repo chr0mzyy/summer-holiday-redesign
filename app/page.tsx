@@ -5,7 +5,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     name: "Summer Holiday",
-    url: "https://biurosummerholiday.pl/",
+    url: "https://summer-holiday-redesign.vercel.app/",
     telephone: "+48572219872",
     email: "summerholiday@onet.pl",
     address: {

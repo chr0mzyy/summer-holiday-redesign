@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
+import ContactMailForm from "@/components/ContactMailForm";
 import SubpageShell from "@/components/SubpageShell";
 
 export const metadata: Metadata = {
@@ -42,18 +43,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="contact-form glass">
-            <span className="eyebrow eyebrow--blue">Napisz do nas</span>
-            <h2>W czym możemy pomóc?</h2>
-            <p>Formularz jest przygotowany wizualnie. Jego wysyłkę podłączymy do mechanizmu VCMS dopiero po otrzymaniu zgody i danych technicznych.</p>
-            <form>
-              <label><span>Imię i nazwisko</span><input name="name" autoComplete="name" placeholder="Jan Kowalski" disabled /></label>
-              <label><span>Telefon lub e-mail</span><input name="contact" placeholder="Twój kontakt" disabled /></label>
-              <label><span>Wiadomość</span><textarea name="message" rows={5} placeholder="Opowiedz krótko o planowanym wyjeździe" disabled /></label>
-              <button className="button" type="button" disabled>Wyślij zapytanie</button>
-              <small className="form-notice">Wersja robocza — bez wysyłania danych.</small>
-            </form>
-          </div>
+          <ContactMailForm />
         </div>
         <div className="shell contact-map">
           <iframe title="Mapa dojazdu do biura Summer Holiday" src="https://www.google.com/maps?q=Traugutta+51%2C+44-370+Psz%C3%B3w&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />

@@ -1,6 +1,6 @@
 # Summer Holiday — plan podstron
 
-Status: wersja robocza, nieopublikowana.  
+Status: opublikowane w serwisie Next.js na Vercel.  
 Produkcja VCMS: bez zmian.
 
 ## Przygotowane trasy
@@ -8,8 +8,8 @@ Produkcja VCMS: bez zmian.
 | Trasa Next.js | Przeznaczenie | Status integracji |
 | --- | --- | --- |
 | `/o-nas` | historia biura, wartości, CTA | gotowy widok |
-| `/kontakt` | kontakt, godziny, mapa, formularz | formularz bez wysyłki |
-| `/polityka-prywatnosci` | kontener dokumentu prawnego | oczekuje treści 1:1 z VCMS |
+| `/kontakt` | kontakt, godziny, mapa, formularz | przygotowanie wiadomości w programie pocztowym |
+| `/polityka-prywatnosci` | obowiązujący dokument prawny | przekierowanie do aktualnej polityki firmy |
 | `/dla-kogo` | przegląd sześciu typów wyjazdów | gotowy widok |
 | `/dla-kogo/rodziny-z-dziecmi` | rodziny, top 5 hoteli | gotowy widok |
 | `/dla-kogo/dla-par` | wyjazdy dla par | gotowy widok |
@@ -20,7 +20,7 @@ Produkcja VCMS: bez zmian.
 
 ## Zasady przed publikacją
 
-1. Nie publikować formularza bez podłączenia do potwierdzonego mechanizmu VCMS.
+1. Formularz na stronie nie zapisuje danych; przygotowuje wiadomość w programie pocztowym użytkownika.
 2. Nie kopiować identyfikatorów widgetów, tokenów ani konfiguracji konta do publicznego repozytorium.
 3. Treść polityki prywatności przenieść bez zmiany znaczenia i zatwierdzić przed wdrożeniem.
 4. Podstrony ofertowe nie pokazują fikcyjnej dostępności ani cen.

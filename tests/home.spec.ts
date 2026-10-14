@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("renders the primary journey and clearly labels demo search", async ({ page }) => {
+test("renders the primary journey and links to the live reservation system", async ({ page }) => {
   await page.goto("/");
 
   const logo = page.getByRole("img", { name: "Summer Holiday — Biuro Podróży" }).first();
@@ -12,12 +12,10 @@ test("renders the primary journey and clearly labels demo search", async ({ page
   await expect(heroCta).toBeVisible();
   expect((await heroCta.boundingBox())?.height).toBeGreaterThanOrEqual(64);
   await expect(page.locator(".flight-plane")).toHaveCount(1);
-  await expect(page.getByText("Demo UI", { exact: true })).toBeVisible();
+  await expect(page.getByText("Oferty online", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Dokąd lecisz/i })).toBeVisible();
-
-  await page.getByRole("button", { name: "Szukaj" }).click();
-  await expect(page.getByRole("status")).toContainText("demonstracja nowego interfejsu");
-  await expect(page.getByRole("status")).toContainText("system rezerwacyjny");
+  await expect(page.getByRole("button", { name: "Sprawdź oferty" })).toBeVisible();
+  await expect(page.getByText(/Wyniki, aktualne ceny i rezerwacja/)).toBeVisible();
 });
 
 test("navigation reaches destinations", async ({ page, isMobile }) => {
@@ -35,8 +33,8 @@ test("navigation reaches destinations", async ({ page, isMobile }) => {
 
 test("offer inspirations explain how prices are confirmed", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("Cena demonstracyjna").first()).toBeVisible();
-  await expect(page.getByText(/Aktualne ceny i dostępność są zawsze potwierdzane/)).toBeVisible();
+  await expect(page.getByText("Aktualne warunki").first()).toBeVisible();
+  await expect(page.getByText(/Aktualne ceny i dostępność zawsze potwierdzamy/)).toBeVisible();
 });
 
 test("connects only verified social profiles and provides a useful footer", async ({ page }) => {
@@ -44,7 +42,8 @@ test("connects only verified social profiles and provides a useful footer", asyn
 
   const facebook = page.getByRole("link", { name: "Odwiedź Summer Holiday na Facebooku" });
   await expect(facebook).toHaveAttribute("href", "https://www.facebook.com/summerholidaypolska");
-  await expect(page.getByText("Profil do podłączenia po przekazaniu zweryfikowanego adresu.")).toBeVisible();
+  await expect(page.getByText("Porozmawiajmy o Twojej podróży")).toBeVisible();
+  await expect(page.getByText(/Instagram wkrótce/i)).toHaveCount(0);
   await expect(page.getByRole("heading", { name: /Twoja następna podróż/i })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Dokąd zabierze Cię/i })).toHaveCount(0);
   await expect(page.locator("footer#kontakt")).toHaveCount(1);
@@ -77,7 +76,7 @@ test("shows tailored trip categories, current contact details and the office map
 
   await expect(page.getByRole("heading", { name: /Znajdź wyjazd/i })).toBeVisible();
   await expect(page.locator(".audience-card")).toHaveCount(6);
-  await expect(page.getByText("Traugutta 51 · 44-370 Pszów")).toBeVisible();
+  await expect(page.getByText("Traugutta 51 · 44-370 Pszów", { exact: true })).toBeVisible();
   await expect(page.getByTitle("Mapa dojazdu do biura Summer Holiday")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Godziny otwarcia" })).toBeVisible();
   const sectionOrder = await page

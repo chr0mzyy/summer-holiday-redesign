@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://summer-holiday-redesign-chr0mzyy.vercel.app"),
+  metadataBase: new URL("https://summer-holiday-redesign.vercel.app"),
   title: {
     default: "Summer Holiday — wakacje szyte na miarę",
     template: "%s | Summer Holiday",
   },
   description:
-    "Nowa koncepcja serwisu biura podróży Summer Holiday. Luksusowy interfejs inspirowany Morzem Śródziemnym.",
+    "Biuro podróży Summer Holiday w Pszowie. Wakacje rodzinne, podróże dla par, wyjazdy firmowe i oferty szyte na miarę.",
   applicationName: "Summer Holiday",
   keywords: ["biuro podróży", "wakacje", "wczasy", "last minute", "Summer Holiday"],
   openGraph: {
@@ -16,9 +16,11 @@ export const metadata: Metadata = {
     description: "Odkryj starannie wybrane kierunki i zaplanuj swój wymarzony wyjazd.",
     type: "website",
     locale: "pl_PL",
+    url: "/",
     images: ["/images/hero-mediterranean.webp"],
   },
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

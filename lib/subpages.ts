@@ -12,7 +12,7 @@ export const audiencePages: AudiencePage[] = [
   {
     slug: "rodziny-z-dziecmi",
     title: "Wakacje dla rodzin z dziećmi",
-    eyebrow: "Top 5 hoteli",
+    eyebrow: "Rodzinne wyjazdy",
     lead:
       "Rodzinny wyjazd powinien dawać odpoczynek także rodzicom. Pomagamy wybrać hotel, transport i udogodnienia dopasowane do wieku dzieci.",
     image: "/images/destination-mallorca.webp",
@@ -42,7 +42,7 @@ export const audiencePages: AudiencePage[] = [
   {
     slug: "po-calym-swiecie",
     title: "Podróże po całym świecie",
-    eyebrow: "Top 5 wycieczek",
+    eyebrow: "Dalsze kierunki",
     lead:
       "Od śródziemnomorskich wysp po dalekie kierunki. Przygotowujemy inspiracje, a potem wspólnie wybieramy najlepszy wariant.",
     image: "/images/hero-mediterranean.webp",

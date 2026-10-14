@@ -104,7 +104,7 @@ export default function SubpageShell({ children }: { children: ReactNode }) {
         </div>
         <div className="shell footer-bottom">
           <span>© {new Date().getFullYear()} Summer Holiday</span>
-          <span>Wersja podstron przygotowana do adaptacji w VCMS</span>
+          <span>Biuro podróży · Traugutta 51 · 44-370 Pszów</span>
         </div>
       </footer>
     </main>

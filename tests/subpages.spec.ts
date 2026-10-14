@@ -10,7 +10,10 @@ test("renders the about and contact subpages with verified office details", asyn
   await expect(page.getByText("Traugutta 51", { exact: false }).first()).toBeVisible();
   await expect(page.getByRole("link", { name: /572 219 872/ }).first()).toHaveAttribute("href", "tel:+48572219872");
   await expect(page.getByTitle("Mapa dojazdu do biura Summer Holiday")).toBeVisible();
-  await expect(page.getByText("Wersja robocza — bez wysyłania danych.")).toBeVisible();
+  await expect(page.getByLabel("Imię i nazwisko")).toBeEnabled();
+  await expect(page.getByLabel("Telefon lub e-mail")).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Przygotuj e-mail" })).toBeEnabled();
+  await expect(page.getByText("Dane nie są zapisywane na stronie.")).toBeVisible();
 });
 
 test("links all audience cards to prepared detail pages", async ({ page }) => {
@@ -23,9 +26,8 @@ test("links all audience cards to prepared detail pages", async ({ page }) => {
   await expect(page.getByText("Aktualną cenę i dostępność zawsze potwierdzamy")).toBeVisible();
 });
 
-test("keeps legal copy clearly marked as a draft pending VCMS migration", async ({ page }) => {
-  await page.goto("/polityka-prywatnosci");
-  await expect(page.getByRole("heading", { name: /Polityka prywatności/i })).toBeVisible();
-  await expect(page.getByText("Nie tworzymy nowej treści prawnej bez zatwierdzenia.")).toBeVisible();
-  await expect(page.getByText("Treść prawna zostanie zachowana 1:1.")).toBeVisible();
+test("redirects privacy traffic to the currently binding company policy", async ({ request }) => {
+  const response = await request.get("/polityka-prywatnosci", { maxRedirects: 0 });
+  expect(response.status()).toBe(307);
+  expect(response.headers().location).toBe("https://biurosummerholiday.pl/privacyrodo");
 });
